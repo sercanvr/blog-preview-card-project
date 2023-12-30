@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-family: 'Figtree', sans-serif;
+    background-color: hsl(47, 88%, 63%);
+    height: 100vh;
+}
+
+.container {
+    padding: 25px;
+    text-align: left;
+    border-radius: 20px;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 7px 7px 0px 1px rgba(0,0,0,1);
+}
+
+#banner {
+    border-radius: 10px;
+}
+
+#banner:hover {
+    opacity: .7;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+#btn {
+    font-size: 14px;
+    font-weight: 800;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: hsl(0, 0%, 7%);
+    background-color: hsl(48,89%,62%);
+}
+
+#btn:hover {
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.main p {
+    font-size: 14px;
+    padding-top: 20px;
+}
+
+h2 {
+    padding-top: 17px;
+}
+
+.main {
+    margin-top: 25px;
+}
+
+.main p:last-child {
+    font-size: 16px;
+    padding-top: 18px;
+    line-height: 24px;
+    word-spacing: 1px;
+    color: hsl(0, 0%, 50%);
+}
+
+.bottom {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 22px;
+}
+
+.bottom img {
+    width: 33px;
+}
+
+.bottom img:hover {
+    opacity: .7;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+#user-name {
+    font-size: 14px;
+    font-weight: 800;
+    padding-left: 10px;
+}
+
+
+
+/* Tooltip */
+[data-tooltip] {
+    position: relative;
+    cursor: pointer;
+}
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+    line-height: 1;
+    font-size: .9em;
+    pointer-events: none;
+    position: absolute;
+    box-sizing: border-box;
+    display: none;
+    opacity: 0;
+    filter: drop-shadow(0px 0px 2px #000000);
+}
+
+[data-tooltip]:before {
+    content: "";
+    border: 5px solid transparent;
+    z-index: 100;
+}
+
+[data-tooltip]:after {
+    content: attr(data-tooltip);
+    text-align: center;
+    min-width: 3em;
+    max-width: 21em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 6px 8px;
+    border-radius: 3px;
+    background: #000000;
+    color: #FFFFFF;
+    z-index: 99;
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    display: block;
+    opacity: 1;
+}
+
+[data-tooltip]:not([data-flow])::before,
+[data-tooltip][data-flow="top"]::before {
+    bottom: 100%;
+    border-bottom-width: 0;
+    border-top-color: #000000;
+}
+
+[data-tooltip]:not([data-flow])::after,
+[data-tooltip][data-flow="top"]::after {
+    bottom: calc(100% + 5px);
+}
+
+[data-tooltip]:not([data-flow])::before, [tooltip]:not([data-flow])::after,
+[data-tooltip][data-flow="top"]::before,
+[data-tooltip][data-flow="top"]::after {
+    left: 50%;
+    -webkit-transform: translate(-50%, -4px);
+    transform: translate(-50%, -4px);
+}
+
+[data-tooltip][data-flow="bottom"]::before {
+    top: 100%;
+    border-top-width: 0;
+    border-bottom-color: #000000;
+}
+
+[data-tooltip][data-flow="bottom"]::after {
+    top: calc(100% + 5px);
+}
+
+[data-tooltip][data-flow="bottom"]::before, [data-tooltip][data-flow="bottom"]::after {
+    left: 50%;
+    -webkit-transform: translate(-50%, 8px);
+    transform: translate(-50%, 8px);
+}
+
+[data-tooltip][data-flow="left"]::before {
+    top: 50%;
+    border-right-width: 0;
+    border-left-color: #000000;
+    left: calc(0em - 5px);
+    -webkit-transform: translate(-8px, -50%);
+    transform: translate(-8px, -50%);
+}
+
+[data-tooltip][data-flow="left"]::after {
+    top: 50%;
+    right: calc(100% + 5px);
+    -webkit-transform: translate(-8px, -50%);
+    transform: translate(-8px, -50%);
+}
+
+[data-tooltip][data-flow="right"]::before {
+    top: 50%;
+    border-left-width: 0;
+    border-right-color: #000000;
+    right: calc(0em - 5px);
+    -webkit-transform: translate(8px, -50%);
+    transform: translate(8px, -50%);
+}
+
+[data-tooltip][data-flow="right"]::after {
+    top: 50%;
+    left: calc(100% + 5px);
+    -webkit-transform: translate(8px, -50%);
+    transform: translate(8px, -50%);
+}
+
+[data-tooltip=""]::after, [data-tooltip=""]::before {
+    display: none !important;
+}
+
+
+
+
+/* Mobile Design */
+@media (max-width: 768px) {
+    body {
+        position: fixed;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    #banner {
+        width: 100%;
+    }
+
+    #btn {
+        font-size: 13px;
+        padding: 6px 8px;
+        border-radius: 5px;
+    }
+
+    .main p {
+        font-size: 12px;
+        padding-top: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .main p:last-child {
+        font-size: 14px;
+    }
+}
